@@ -21,10 +21,14 @@ This project collects system information like CPU load, memory usage, and disk u
 ## Project Structure
 
 smart-system-monitor/
-├── scripts/
+├── scripts/ 
+
 │ └── collect_metrics.sh
+
 ├── logs/
+
 │ └── system_metrics.csv
+
 ├── README.md
 
 
