@@ -1,0 +1,13 @@
+[Unit]
+Description=Smart System Monitor Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/adhi/smart-system-monitor/monitor.sh
+WorkingDirectory=/home/adhi/smart-system-monitor
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
