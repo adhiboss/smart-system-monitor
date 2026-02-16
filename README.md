@@ -1,61 +1,28 @@
-# Smart System Monitor
+# 🖥️ Smart System Monitor
 
-A simple Linux system monitoring project built using Bash scripting and cron automation.
-
-This project collects system information like CPU load, memory usage, and disk usage, and saves it to a log file automatically.
+A lightweight Linux system monitoring script that logs CPU, memory, disk, and network usage into a CSV file for analysis and automation.
 
 ---
 
-## Features
+## 📌 Features
 
-- Collects:
-  - CPU load
-  - Memory usage
-  - Disk usage
-- Saves data to a CSV log file
-- Runs automatically every minute using cron
-- Easy to understand and extend
-
----
-
-## Project Structure
-
-smart-system-monitor/
-├── scripts/ 
-
-│ └── collect_metrics.sh
-
-├── logs/
-
-│ └── system_metrics.csv
-
-├── README.md
-
+- Logs system metrics with timestamp
+- Captures:
+  - CPU usage (%)
+  - Load average (1 min)
+  - Memory usage (used/total + %)
+  - Disk usage (used/total + %)
+  - Network interface RX/TX bytes
+- Stores data in CSV format (easy to analyze)
+- Designed for automation using cron
 
 ---
 
-## How to Run
-
-Run the script manually:
+## 📂 Project Structure
 
 ```bash
-./scripts/collect_metrics.sh
-cat logs/system_metrics.csv
-
-Cron entry used:
-
-* * * * * /home/adhi/smart-system-monitor/scripts/collect_metrics.sh
-
-What I Learned
-
-Writing basic Bash scripts
-
-Collecting system information
-
-Using cron for task automation
-
-Using Git and GitHub for version control
-
---Built by AI , this makes me even more system focused with help of AI
--- This can be used alternatively instead of using TASK Manager 
--- Helped me understanding linux and internal properties 
+smart-system-monitor/
+├── monitor.sh
+├── logs/
+│   └── system_metrics.csv
+└── README.md
