@@ -40,3 +40,13 @@ fi
 echo "$TIMESTAMP,$HOSTNAME,\"$UPTIME\",$CPU_USAGE,$LOAD_AVG,$MEM_USED,$MEM_TOTAL,$MEM_PERCENT,$DISK_USED,$DISK_TOTAL,$DISK_PERCENT,$NET_IFACE,$RX_BYTES,$TX_BYTES" >> "$CSV_FILE"
 
 echo "Metrics logged at $TIMESTAMP into $CSV_FILE"
+# Disk Usage Check
+DISK_THRESHOLD=80
+
+USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+
+if [ "$USAGE" -gt "$DISK_THRESHOLD" ]; then
+    echo "[ALERT] Disk usage is above ${DISK_THRESHOLD}% (Current: ${USAGE}%)"
+else
+    echo "[OK] Disk usage is ${USAGE}%"
+fi
