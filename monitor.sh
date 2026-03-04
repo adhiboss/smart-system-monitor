@@ -50,3 +50,11 @@ if [ "$USAGE" -gt "$DISK_THRESHOLD" ]; then
 else
     echo "[OK] Disk usage is ${USAGE}%"
 fi
+# Network Connectivity Check
+HOST="8.8.8.8"
+
+if ping -c 1 $HOST > /dev/null 2>&1; then
+    echo "[OK] Network connectivity is working"
+else
+    echo "[ALERT] Network connectivity issue detected"
+fi
