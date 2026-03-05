@@ -1,0 +1,22 @@
+name: Smart Monitor CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Make scripts executable
+        run: chmod +x monitor.sh health-check.sh scripts/*.sh
+
+      - name: Run monitor script
+        run: bash monitor.sh
+
+      - name: Run health check
+        run: bash health-check.sh
